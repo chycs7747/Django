@@ -1,0 +1,9 @@
+{% if subject_list %}
+    <ul>
+    {% for subject in subject_list %}
+        <li><a href="{% url 'notice_board:subject_id' subject_id=subject.id %}">{{ subject.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>과목이 아직 존재하지 않습니다.</p>
+{% endif %}
