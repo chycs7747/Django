@@ -5,5 +5,5 @@ app_name = 'notice_board'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<int:subject_id>/', views.subject_detail, name="subjectId")
+    path('<int:subject_id>/', views.subject_detail, name="subject_detail")
 ]

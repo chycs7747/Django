@@ -1,0 +1,11 @@
+{% if question_list %}
+    <ul>
+    {% for question in question_list %}
+        <p>목차: {{forloop.counter}}번 </p>
+        <li><a href="{% url 'pybo:detail' question_id=question.id %}">'{{ question.subject }}'에 대한 내용입니다.</a></li>
+        <!--하드코딩 되어 있던 /pybo/{{ question.id }} 링크를 {# {% url 'detail' question.id %} #}로 변경했다. 여기서 question.id는 URL 매핑에 정의된(pybo/urls.py) <int:question_id>에 전달해야 하는 값을 의미한다.-->
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>질문이 없습니다.</p>
+{% endif %}
