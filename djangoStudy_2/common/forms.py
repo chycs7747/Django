@@ -4,6 +4,13 @@ from django.contrib.auth.models import User
 from common.models import Player
 
 
+
+class UserForm:
+    def __init__(self, post_dict=[]):
+        self.post_dict = post_dict
+
+
+'''
 class LoginAuthentication(forms.Form):
     fields = ("username", "password1", "password2", "email")
     def clean(self):
@@ -12,14 +19,9 @@ class LoginAuthentication(forms.Form):
             player = Player.objects.get(pk='name')
         except:
             pass
+'''
 
-class UserForm(LoginAuthentication):
-    def __init__(self, post_dict=[]):
-        super().__init__()
-        self.post_dict = post_dict
-
-
-'''ß
+'''
 기존의 유저 form입니다.
 
 class UserForm(UserCreationForm):
