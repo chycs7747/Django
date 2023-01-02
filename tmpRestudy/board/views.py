@@ -30,6 +30,21 @@ def board_create_submit(request):
         board.save()
         return redirect('board:main_index')
 
+def post_create(request, board_name):
+    board=Board.objects.get(name=board_name)
+    context = {
+        'board': board,
+    }
+    return render(request, 'board/post_create.html', context)
+
+def post_create_submit(request, board_name):
+    board=Board.objects.get(name=board_name)
+    create_name=request.POST['create_name']
+    create_content=request.POST['create_content']
+    post = Post(board=board, name=create_name, content=create_content)
+    post.save()
+    return redirect('board:board_index', board_name)
+
 def post_modify(request, post_name):
     post=Post.objects.get(name=post_name)
     context = {

@@ -5,6 +5,13 @@
         <li><a href="{% url 'board:post_index' post_name=post.name %}">{{ post.name }}</a></li>
     {% endfor %}
 </fieldset>
+
+<form action="{% url 'board:post_create' board_name=board.name %}" method="post">
+    {% csrf_token %}
+    
+    <button type="submit">포스트 등록</button>
+</form>
+
 <form action="{% url 'board:board_delete' board_name=board.name %}" method="post">
     {% csrf_token %}
     <button type="submit">게시판 삭제</button>
