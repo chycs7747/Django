@@ -1,9 +1,0 @@
-<form action="{% url 'board:post_modify_submit' post_name=post.name%}" method="post">
-    {% csrf_token %}
-    <fieldset>
-        <legend>수정 내용 작성</legend>
-        <textarea name="modify_content">{{ post.content }}</textarea> <br><br>
-        <button type="submit">수정완료</button>
-    </fieldset>
-
-</form>
